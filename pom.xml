@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>science.aist</groupId>
+    <artifactId>aistcv</artifactId>
+    <version>4.3.0</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <opencv.version>4.3.0</opencv.version>
+        <testng.version>6.11</testng.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-antrun-plugin.version>1.3</maven-antrun-plugin.version>
+        <java.version>11</java.version>
+
+        <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
+        <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+        <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+        <maven-scm-publish-plugin.version>3.0.0</maven-scm-publish-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
+    </properties>
+
+    <dependencies>
+        <!-- testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <scm>
+        <connection>scm:git:git@github.com:FHOOEAIST/aistcv.git</connection>
+        <url>https://github.com/FHOOEAIST/aistcv</url>
+        <developerConnection>scm:git:git@github.com:FHOOEAIST/aistcv.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <site>
+            <id>javadoc</id>
+            <url>scm:git:ssh://git@github.com/FHOOEAIST/aistcv.git</url>
+        </site>
+    </distributionManagement>
+
+
+    <name>AistCV</name>
+    <description>AIST CV</description>
+    <url>https://github.com/FHOOEAIST/aistcv</url>
+    <organization>
+        <name>Advanced Information Systems and Technology</name>
+        <url>https://aist.science</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>Mozilla Public License (MPL) version 2.0</name>
+            <url>https://www.mozilla.org/en-US/MPL/2.0/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <issueManagement>
+        <system>Gitlab</system>
+        <url>https://github.com/FHOOEAIST/aistcv/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>AIST</id>
+            <name>Advanced Information Systems and Technology</name>
+            <email>contact@aist.science</email>
+            <roles>
+                <role>Research Group</role>
+            </roles>
+            <url>https://aist.science</url>
+            <organization>University of Applied Sciences Upper Austria</organization>
+            <organizationUrl>https://www.fh-ooe.at/</organizationUrl>
+        </developer>
+    </developers>
+
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${maven-project-info-reports-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <doclint>all</doclint>
+                    <additionalJOptions>
+                        <additionalJOption>--no-module-directories</additionalJOption>
+                    </additionalJOptions>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <reportSets>
+                    <reportSet><!-- by default, id = "default" -->
+                        <reports><!-- select non-aggregate reports -->
+                            <report>javadoc</report>
+                            <report>test-javadoc</report>
+                        </reports>
+                    </reportSet>
+                    <reportSet><!-- aggregate reportSet, to define in poms having modules -->
+                        <id>aggregate</id>
+                        <inherited>false</inherited><!-- don't run aggregate in child modules -->
+                        <reports>
+                            <report>aggregate</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>${maven-scm-publish-plugin.version}</version>
+                <configuration>
+                    <scmBranch>site</scmBranch>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-Xlint</arg>
+                    </compilerArgs>
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${maven-antrun-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <tasks>
+                                <unjar src="${project.basedir}/lib/opencv-4.3.0.jar"
+                                       dest="${project.build.directory}/classes">
+                                    <patternset>
+                                        <include name="**/*.class"/>
+                                    </patternset>
+                                </unjar>
+                                <unjar src="${project.basedir}/lib/opencv-4.3.0.jar"
+                                       dest="${project.build.directory}/generated-sources">
+                                    <patternset>
+                                        <include name="**/*.java"/>
+                                    </patternset>
+                                </unjar>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>os-release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--no-permission-warning</arg>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                        <arg>${arguments}</arg>
+                                    </gpgArguments>
+                                </configuration>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-release-plugin</artifactId>
+                            <version>${maven-release-plugin.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
+</project>
