@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>science.aist</groupId>
     <artifactId>aistcv</artifactId>
-    <version>4.3.0-SNAPSHOT</version>
+    <version>4.3.0</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -39,7 +38,7 @@
         <connection>scm:git:git@github.com:FHOOEAIST/aistcv.git</connection>
         <url>https://github.com/FHOOEAIST/aistcv</url>
         <developerConnection>scm:git:git@github.com:FHOOEAIST/aistcv.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>aistcv-4.3.0</tag>
     </scm>
 
     <distributionManagement>
@@ -169,16 +168,14 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <tasks>
-                                <unjar src="${project.basedir}/lib/opencv-4.3.0.jar"
-                                       dest="${project.build.directory}/classes">
+                                <unjar src="${project.basedir}/lib/opencv-4.3.0.jar" dest="${project.build.directory}/classes">
                                     <patternset>
-                                        <include name="**/*.class"/>
+                                        <include name="**/*.class" />
                                     </patternset>
                                 </unjar>
-                                <unjar src="${project.basedir}/lib/opencv-4.3.0.jar"
-                                       dest="${project.build.directory}/generated-sources">
+                                <unjar src="${project.basedir}/lib/opencv-4.3.0.jar" dest="${project.build.directory}/generated-sources">
                                     <patternset>
-                                        <include name="**/*.java"/>
+                                        <include name="**/*.java" />
                                     </patternset>
                                 </unjar>
                             </tasks>
