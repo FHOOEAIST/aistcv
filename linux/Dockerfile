@@ -20,7 +20,7 @@ ENV ANT_HOME=/usr/share/ant
 # make build dir
 # build and install as lib
 # cleanup
-ARG opencv_version=4.3.0
+ARG opencv_version=4.5.3
 RUN wget https://github.com/opencv/opencv/archive/${opencv_version}.zip \
     && unzip ${opencv_version}.zip \
     && mv opencv-${opencv_version} opencv \
