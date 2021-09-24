@@ -1,10 +1,14 @@
-# AistCV
-
 [![DOI](https://zenodo.org/badge/335648723.svg)](https://zenodo.org/badge/latestdoi/335648723)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 [![GitHub release](https://img.shields.io/github/v/release/fhooeaist/aistcv.svg)](https://github.com/fhooeaist/aistcv/releases)
 [![Maven Central](https://img.shields.io/maven-central/v/science.aist/aistcv.svg?label=Maven%20Central)](https://search.maven.org/artifact/science.aist/aistcv)
 [![javadoc](https://javadoc.io/badge2/science.aist/aistcv/javadoc.svg)](https://javadoc.io/doc/science.aist/aistcv) 
+
+![logo](./documentation/logo.png)
+
+# AistCV
+
+
 
 
 AistCV is a Java wrapper for [OpenCV](https://github.com/opencv/opencv).
