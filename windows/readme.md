@@ -10,6 +10,7 @@ You need:
 
 - Windows 10 64bit (probably)
 - Powershell (with activated Windows Developer Settings)
+    - Activate via: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 - Visual Studio (respectively msbuild)
 
 ### Additional Requirements
