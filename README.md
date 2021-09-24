@@ -39,7 +39,7 @@ If you want to use the AistCV wrapper you have to:
 <dependency>
     <groupId>science.aist</groupId>
     <artifactId>aistcv</artifactId>
-    <version>4.3.0</version>
+    <version>4.5.3</version>
 </dependency>
 ```
 
