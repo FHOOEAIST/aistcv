@@ -5,19 +5,19 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-$opencv_version=4.3.0;
+$opencv_version=4.5.3;
 
 # 0. create tmp folder (if not exist)
 New-Item -ItemType Directory -Force -Path "C:\tmp"
 
 # 5. download opencv
-wget "https://github.com/opencv/opencv/archive/${opencv_version}.zip" -OutFile "C:\tmp\opencv.zip"
+wget "https://github.com/opencv/opencv/archive/refs/tags/4.5.3.zip" -OutFile "C:\tmp\opencv.zip"
 Expand-Archive -Path "C:\tmp\opencv.zip" -DestinationPath "C:\tmp\";
 Move-Item "C:\tmp\opencv-${opencv_version}" "C:\tmp\opencv";
 Remove-Item "C:\tmp\opencv.zip" -Force ;
 
 # 6.download opencv extra modules
-wget "https://github.com/opencv/opencv_contrib/archive/${opencv_version}.zip" -OutFile "C:\tmp\opencv_contrib.zip"
+wget "https://github.com/opencv/opencv_contrib/archive/4.5.3.zip" -OutFile "C:\tmp\opencv_contrib.zip"
 Expand-Archive -Path "C:\tmp\opencv_contrib.zip" -DestinationPath "C:\tmp\";
 Move-Item "C:\tmp\opencv_contrib-${opencv_version}" "C:\tmp\opencv_contrib";
 Remove-Item "C:\tmp\opencv_contrib.zip" -Force ;
