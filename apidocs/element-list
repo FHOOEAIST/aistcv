@@ -3,6 +3,7 @@ aist.science.aistcv.domain
 aist.science.aistcv.exception
 aist.science.aistcv.helper
 org.opencv.aruco
+org.opencv.barcode
 org.opencv.bgsegm
 org.opencv.bioinspired
 org.opencv.calib3d
@@ -26,6 +27,7 @@ org.opencv.tracking
 org.opencv.utils
 org.opencv.video
 org.opencv.videoio
+org.opencv.wechat_qrcode
 org.opencv.xfeatures2d
 org.opencv.ximgproc
 org.opencv.xphoto
