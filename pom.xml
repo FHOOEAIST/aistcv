@@ -4,7 +4,7 @@
 
     <groupId>science.aist</groupId>
     <artifactId>aistcv</artifactId>
-    <version>4.5.3-SNAPSHOT</version>
+    <version>4.5.3</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -38,7 +38,7 @@
         <connection>scm:git:git@github.com:FHOOEAIST/aistcv.git</connection>
         <url>https://github.com/FHOOEAIST/aistcv</url>
         <developerConnection>scm:git:git@github.com:FHOOEAIST/aistcv.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>aistcv-4.5.3</tag>
     </scm>
 
     <distributionManagement>
